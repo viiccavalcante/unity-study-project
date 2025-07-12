@@ -30,4 +30,9 @@ public class EnemyController : MonoBehaviour
         currentIndex = (currentIndex + 1) % totalWeapons;
         weapon.GetChild(currentIndex).gameObject.SetActive(true);
     }
+
+    public void Attack()
+    {
+        animator.SetTrigger("Attack");
+    }
 }
