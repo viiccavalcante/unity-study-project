@@ -24,6 +24,17 @@ public class UIScript : MonoBehaviour
     public void OnAttackClicked()
     {
         playerAnimator?.SetTrigger("Attack");
+
+        if (enemies.Count > 0)
+        {
+            Transform currentTarget = enemies[currentTargetIndex];
+            EnemyController enemy = currentTarget.GetComponent<EnemyController>();
+
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+        }
     }
 
     public void OnChangeTargetClicked()
