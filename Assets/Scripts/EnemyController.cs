@@ -20,11 +20,6 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            animator.SetTrigger("Kill");
-        }
-
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             SwitchWeapon();

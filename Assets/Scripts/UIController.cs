@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class UIScript : MonoBehaviour
+public class UIController : MonoBehaviour
 {
     public Button attackButton;
     public Button changeTargetButton;
@@ -17,7 +18,8 @@ public class UIScript : MonoBehaviour
         UpdateTargetPointerPos();
     }
 
-    private void Update() {
+    private void Update()
+    {
         UpdateTargetPointerPos();
     }
 
@@ -30,10 +32,10 @@ public class UIScript : MonoBehaviour
             Transform currentTarget = enemies[currentTargetIndex];
             EnemyController enemy = currentTarget.GetComponent<EnemyController>();
 
-                if (enemy != null)
-                {
-                    enemy.TakeDamage(1);
-                }
+            if (enemy != null)
+            {
+                enemy.TakeDamage(1);
+            }
         }
     }
 
@@ -51,5 +53,10 @@ public class UIScript : MonoBehaviour
             Vector3 offset = new Vector3(0, 2f, 0);
             targetPointer.transform.position = target.position + offset;
         }
+    }
+    
+    public void Back()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
